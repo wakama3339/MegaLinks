@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Linknest — ваши важные ссылки</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="auth" class="auth-screen">
+    <section class="auth-brand">
+      <div class="logo"><span>⌁</span> linknest</div>
+      <div class="hero-copy"><p class="eyebrow">ВАШЕ ПРОСТРАНСТВО В ИНТЕРНЕТЕ</p><h1>Важное всегда<br><i>под рукой.</i></h1><p>Сохраняйте находки, собирайте их в коллекции и делитесь только с теми, кому доверяете.</p></div>
+      <div class="grain"></div><div class="orb orb-a"></div><div class="orb orb-b"></div>
+      <p class="copyright">© 2026 Linknest</p>
+    </section>
+    <section class="auth-form-wrap">
+      <form id="loginForm" class="auth-form">
+        <div><p class="eyebrow">ДОБРО ПОЖАЛОВАТЬ</p><h2>Войдите в свой уголок</h2></div>
+        <label>Имя пользователя<input id="loginUser" required placeholder="например, olga" autocomplete="username"></label>
+        <label>Пароль<input id="loginPass" required type="password" placeholder="Ваш пароль" autocomplete="current-password"></label>
+        <button class="primary wide">Войти <span>→</span></button>
+        <p class="form-foot">Впервые здесь? <button type="button" class="text-btn" data-switch="register">Создать аккаунт</button></p>
+      </form>
+      <form id="registerForm" class="auth-form hidden">
+        <div><p class="eyebrow">НАЧНЁМ</p><h2>Создайте свой уголок</h2></div>
+        <label>Имя пользователя<input id="regUser" required placeholder="например, olga" autocomplete="username"></label>
+        <label>Пароль<input id="regPass" required minlength="4" type="password" placeholder="Минимум 4 символа" autocomplete="new-password"></label>
+        <button class="primary wide">Создать аккаунт <span>→</span></button>
+        <p class="form-foot">Уже с нами? <button type="button" class="text-btn" data-switch="login">Войти</button></p>
+      </form>
+    </section>
+  </div>
+
+  <main id="app" class="app hidden">
+    <aside class="sidebar">
+      <div class="logo"><span>⌁</span> linknest</div>
+      <button class="new-link primary" id="addLink">+ <b>Новая ссылка</b></button>
+      <nav>
+        <button class="nav-item active" data-view="all"><span>⌁</span> Все ссылки <em id="allCount">0</em></button>
+        <button class="nav-item" data-view="shared"><span>◌</span> Доступные мне <em id="sharedCount">0</em></button>
+        <button class="nav-item" data-view="starred"><span>✦</span> Избранное <em id="starCount">0</em></button>
+      </nav>
+      <div class="sidebar-label">КОЛЛЕКЦИИ <button id="addGroup" title="Новая коллекция">+</button></div>
+      <div id="groups" class="group-list"></div>
+      <div class="profile"><div class="avatar" id="avatar"></div><div><strong id="profileName"></strong><small>Личный аккаунт</small></div><button id="logout" title="Выйти">↗</button></div>
+    </aside>
+    <section class="content">
+      <header><div><p class="eyebrow" id="pageKicker">МОЯ БИБЛИОТЕКА</p><h1 id="pageTitle">Все ссылки</h1></div><div class="header-actions"><label class="search">⌕<input id="search" placeholder="Поиск ссылок"></label><button id="addLinkTop" class="primary compact">+ Добавить</button></div></header>
+      <div id="empty" class="empty hidden"><div>⌁</div><h3>Здесь пока тихо</h3><p>Добавьте первую ссылку — она останется только вашей, пока вы не решите поделиться.</p><button class="primary" id="emptyAdd">Добавить ссылку</button></div>
+      <div id="linkGrid" class="link-grid"></div>
+    </section>
+  </main>
+
+  <div id="modal" class="modal hidden"><div class="modal-card"><button class="close" data-close>×</button><div id="modalContent"></div></div></div>
+  <div id="toast" class="toast"></div>
+  <script src="app.js"></script>
+</body>
+</html>
