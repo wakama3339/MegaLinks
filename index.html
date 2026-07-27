@@ -1,63 +1,25 @@
 <!doctype html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Linknest — ваши важные ссылки</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="ui-overrides.css" />
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Мои ссылки</title><link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div id="auth" class="auth-screen">
-    <section class="auth-brand">
-      <div class="logo"><span>⌁</span> linknest</div>
-      <div class="hero-copy"><p class="eyebrow">ВАШЕ ПРОСТРАНСТВО В ИНТЕРНЕТЕ</p><h1>Важное всегда<br><i>под рукой.</i></h1><p>Сохраняйте находки, собирайте их в коллекции и делитесь только с теми, кому доверяете.</p></div>
-      <div class="grain"></div><div class="orb orb-a"></div><div class="orb orb-b"></div>
-      <p class="copyright">© 2026 Linknest</p>
-    </section>
-    <section class="auth-form-wrap">
-      <form id="loginForm" class="auth-form">
-        <div><p class="eyebrow">ДОБРО ПОЖАЛОВАТЬ</p><h2>Войдите в свой уголок</h2></div>
-        <label>Имя пользователя<input id="loginUser" required placeholder="например, olga" autocomplete="username"></label>
-        <label>Пароль<input id="loginPass" required type="password" placeholder="Ваш пароль" autocomplete="current-password"></label>
-        <button class="primary wide">Войти <span>→</span></button>
-        <p class="form-foot">Впервые здесь? <button type="button" class="text-btn" data-switch="register">Создать аккаунт</button></p>
+  <main class="page">
+    <header><h1>Мои ссылки</h1><p>Простое место для важных ссылок</p></header>
+    <section class="add-panel">
+      <form id="linkForm" class="link-form">
+        <input id="title" required placeholder="Название ссылки">
+        <input id="url" required placeholder="Ссылка: google.com или https://google.com">
+        <select id="group"><option value="">Без группы</option></select>
+        <button type="submit">Добавить ссылку</button>
       </form>
-      <form id="registerForm" class="auth-form hidden">
-        <div><p class="eyebrow">НАЧНЁМ</p><h2>Создайте свой уголок</h2></div>
-        <label>Имя пользователя<input id="regUser" required placeholder="например, olga" autocomplete="username"></label>
-        <label>Пароль<input id="regPass" required minlength="4" type="password" placeholder="Минимум 4 символа" autocomplete="new-password"></label>
-        <button class="primary wide">Создать аккаунт <span>→</span></button>
-        <p class="form-foot">Уже с нами? <button type="button" class="text-btn" data-switch="login">Войти</button></p>
-      </form>
+      <form id="groupForm" class="group-form"><input id="groupName" required placeholder="Новая группа, например Работа"><button type="submit">Создать группу</button></form>
     </section>
-  </div>
-
-  <main id="app" class="app hidden">
-    <aside class="sidebar">
-      <div class="logo"><span>⌁</span> linknest</div>
-      <nav>
-        <button class="nav-item active" data-view="all"><span>⌁</span> Все ссылки <em id="allCount">0</em></button>
-        <button class="nav-item" data-view="shared"><span>◌</span> Доступные мне <em id="sharedCount">0</em></button>
-        <button class="nav-item" data-view="starred"><span>✦</span> Избранное <em id="starCount">0</em></button>
-      </nav>
-      <div class="sidebar-label">КОЛЛЕКЦИИ</div>
-      <div id="groups" class="group-list"></div>
-      <div class="profile"><div class="avatar" id="avatar"></div><div><strong id="profileName"></strong><small>Личный аккаунт</small></div><button id="logout" title="Выйти">↗</button></div>
-    </aside>
-    <section class="content">
-      <header><div><p class="eyebrow" id="pageKicker">МОЯ БИБЛИОТЕКА</p><h1 id="pageTitle">Все ссылки</h1></div><div class="header-actions"><label class="search">⌕<input id="search" placeholder="Поиск ссылок"></label></div></header>
-      <div id="empty" class="empty hidden"><div>⌁</div><h3>Здесь пока тихо</h3><p>Добавьте первую ссылку кнопкой в правом нижнем углу — она останется только вашей, пока вы не решите поделиться.</p></div>
-      <div id="linkGrid" class="link-grid"></div>
-    </section>
+    <section id="groups" class="groups"></section>
+    <p id="empty" class="empty">Ссылок ещё нет. Добавьте первую выше.</p>
   </main>
-  <button id="addLink" class="fixed-add" title="Добавить ссылку" aria-label="Добавить ссылку"><img src="res/1.png" alt="Добавить"></button>
-
-  <div id="modal" class="modal hidden"><div class="modal-card"><button class="close" data-close>×</button><div id="modalContent"></div></div></div>
-  <div id="toast" class="toast"></div>
+  <template id="groupTemplate"><section class="group"><div class="group-head"><h2></h2><span class="count"></span></div><div class="links"></div></section></template>
   <script src="app.js"></script>
 </body>
 </html>
