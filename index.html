@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="ui-overrides.css" />
 </head>
 <body>
   <div id="auth" class="auth-screen">
@@ -38,22 +39,22 @@
   <main id="app" class="app hidden">
     <aside class="sidebar">
       <div class="logo"><span>⌁</span> linknest</div>
-      <button class="new-link primary" id="addLink">+ <b>Новая ссылка</b></button>
       <nav>
         <button class="nav-item active" data-view="all"><span>⌁</span> Все ссылки <em id="allCount">0</em></button>
         <button class="nav-item" data-view="shared"><span>◌</span> Доступные мне <em id="sharedCount">0</em></button>
         <button class="nav-item" data-view="starred"><span>✦</span> Избранное <em id="starCount">0</em></button>
       </nav>
-      <div class="sidebar-label">КОЛЛЕКЦИИ <button id="addGroup" title="Новая коллекция">+</button></div>
+      <div class="sidebar-label">КОЛЛЕКЦИИ</div>
       <div id="groups" class="group-list"></div>
       <div class="profile"><div class="avatar" id="avatar"></div><div><strong id="profileName"></strong><small>Личный аккаунт</small></div><button id="logout" title="Выйти">↗</button></div>
     </aside>
     <section class="content">
-      <header><div><p class="eyebrow" id="pageKicker">МОЯ БИБЛИОТЕКА</p><h1 id="pageTitle">Все ссылки</h1></div><div class="header-actions"><label class="search">⌕<input id="search" placeholder="Поиск ссылок"></label><button id="addLinkTop" class="primary compact">+ Добавить</button></div></header>
-      <div id="empty" class="empty hidden"><div>⌁</div><h3>Здесь пока тихо</h3><p>Добавьте первую ссылку — она останется только вашей, пока вы не решите поделиться.</p><button class="primary" id="emptyAdd">Добавить ссылку</button></div>
+      <header><div><p class="eyebrow" id="pageKicker">МОЯ БИБЛИОТЕКА</p><h1 id="pageTitle">Все ссылки</h1></div><div class="header-actions"><label class="search">⌕<input id="search" placeholder="Поиск ссылок"></label></div></header>
+      <div id="empty" class="empty hidden"><div>⌁</div><h3>Здесь пока тихо</h3><p>Добавьте первую ссылку кнопкой в правом нижнем углу — она останется только вашей, пока вы не решите поделиться.</p></div>
       <div id="linkGrid" class="link-grid"></div>
     </section>
   </main>
+  <button id="addLink" class="fixed-add" title="Добавить ссылку" aria-label="Добавить ссылку"><img src="res/1.png" alt="Добавить"></button>
 
   <div id="modal" class="modal hidden"><div class="modal-card"><button class="close" data-close>×</button><div id="modalContent"></div></div></div>
   <div id="toast" class="toast"></div>
