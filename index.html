@@ -7,20 +7,20 @@
 <body>
   <img class="corner-gif" src="res/1.gif" alt="">
   <main class="page">
-    <header><div><h1>Мои ссылки</h1><p>Простое место для важных ссылок</p></div><a class="header-add" href="/addl">Добавить ссылку</a></header>
+    <header><div><h1>Мои ссылки</h1><p>Простое место для важных ссылок</p></div><a class="header-add" href="#addPanel">Добавить ссылку</a></header>
     <section id="addPanel" class="add-panel">
       <form id="linkForm" class="link-form">
         <input id="title" required placeholder="Название ссылки">
         <input id="url" required placeholder="Ссылка: google.com или https://google.com">
-        <select id="group"><option value="">Без группы</option></select>
+        <select id="group"><option value="">Без группы</option></select><label class="color-pick" title="Цвет ссылки"><input id="linkColor" type="color" value="#171717"></label>
         <button type="submit">Добавить ссылку</button>
       </form>
-      <form id="groupForm" class="group-form"><input id="groupName" required placeholder="Новая группа, например Работа"><button type="submit">Создать группу</button></form>
+      <form id="groupForm" class="group-form"><input id="groupName" required placeholder="Новая группа, например Работа"><label class="color-pick" title="Цвет группы"><input id="groupColor" type="color" value="#577590"></label><button type="submit">Создать группу</button></form>
     </section>
     <section id="groups" class="groups"></section>
     <p id="empty" class="empty">Ссылок ещё нет. Добавьте первую выше.</p>
   </main>
-  <a class="fixed-add" href="/addl" title="Добавить ссылку" aria-label="Добавить ссылку"><img src="res/1.png" alt="Добавить"></a>
+  <a class="fixed-add" href="#addPanel" title="Добавить ссылку" aria-label="Добавить ссылку"><img src="res/1.png" alt="Добавить"></a>
   <template id="groupTemplate"><section class="group"><div class="group-head"><h2></h2><span class="count"></span></div><div class="links"></div></section></template>
   <script src="app.js"></script>
 </body>
