@@ -8,7 +8,7 @@
   <img class="corner-gif" src="res/1.gif" alt="">
   <main class="page">
     <header><h1>Мои ссылки</h1><p>Простое место для важных ссылок</p></header>
-    <section class="add-panel">
+    <section id="addPanel" class="add-panel">
       <form id="linkForm" class="link-form">
         <input id="title" required placeholder="Название ссылки">
         <input id="url" required placeholder="Ссылка: google.com или https://google.com">
@@ -20,6 +20,7 @@
     <section id="groups" class="groups"></section>
     <p id="empty" class="empty">Ссылок ещё нет. Добавьте первую выше.</p>
   </main>
+  <a class="fixed-add" href="/addl" title="Добавить ссылку" aria-label="Добавить ссылку"><img src="res/1.png" alt="Добавить"></a>
   <template id="groupTemplate"><section class="group"><div class="group-head"><h2></h2><span class="count"></span></div><div class="links"></div></section></template>
   <script src="app.js"></script>
 </body>
